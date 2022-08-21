@@ -430,6 +430,8 @@ pub fn pushable(graph: &mut Graph) {
                     cause = Some("parent is pushable");
                 }
             }
+            // HACK: make all branches pushable
+            current.pushable = true;
         }
 
         node_queue.extend(current.children.iter().copied().map(|id| (id, cause)));
